@@ -13,7 +13,6 @@ public:
             }
 
             m[set].push_back(s);
-            cout << m[set][m[set].size()-1] << endl;
         }
         
         vector<vector<string>> res;
