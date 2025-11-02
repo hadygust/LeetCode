@@ -7,7 +7,6 @@ public:
         
         for (int i = 0; i < board.size(); i++){
             for(int j = 0; j < board[i].size(); j++){
-                cout << i << " " << j << " " << board[i][j] << endl;
 
                 row[i].push_back(board[i][j]);
                 col[j].push_back(board[i][j]);
@@ -28,29 +27,29 @@ public:
             }
         }
 
-        cout << "ROW: "; 
-        for(auto x : row){
-            for(auto y : x){
-                cout << y << " ";
-            }
-            cout << endl;
-        }
+        // cout << "ROW: "; 
+        // for(auto x : row){
+        //     for(auto y : x){
+        //         cout << y << " ";
+        //     }
+        //     cout << endl;
+        // }
 
-        cout << "COL: "; 
-        for(auto x : col){
-            for(auto y : x){
-                cout << y << " ";
-            }
-            cout << endl;
-        }
+        // cout << "COL: "; 
+        // for(auto x : col){
+        //     for(auto y : x){
+        //         cout << y << " ";
+        //     }
+        //     cout << endl;
+        // }
         
-        cout << "3x3: "; 
-        for(auto x : sq){
-            for(auto y : x){
-                cout << y.first << " " << y.second << endl;
-            }
-            cout << endl;
-        }
+        // cout << "3x3: "; 
+        // for(auto x : sq){
+        //     for(auto y : x){
+        //         cout << y.first << " " << y.second << endl;
+        //     }
+        //     cout << endl;
+        // }
 
         for (int i = 0; i < board.size(); i++){
             for(int j = 0; j < board[i].size(); j++){
@@ -78,13 +77,11 @@ public:
 
                 pos = posx + posy;
 
-                cout << pos << " " << board[i][j] << " = " << sq[pos-1][board[i][j]] << endl;
+                // cout << pos << " " << board[i][j] << " = " << sq[pos-1][board[i][j]] << endl;
 
                 if(sq[pos-1][board[i][j]] > 1){
                     return false;
                 }
-
-
             }
         }
 
