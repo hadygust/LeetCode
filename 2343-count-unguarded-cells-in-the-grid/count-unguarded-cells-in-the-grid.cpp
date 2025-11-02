@@ -49,14 +49,6 @@ public:
                 board[i][j] = 1;
                 j++;
             }
-
-            // for(int i =0; i < board.size(); i++){
-            //     for(int j = 0; j < board[i].size(); j++){
-            //         cout << board[i][j] << " ";
-            //     }
-            //     cout << endl;
-            // }
-            // cout << endl;
         }
 
         int res = 0;
