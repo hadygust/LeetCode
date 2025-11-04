@@ -5,11 +5,11 @@ public:
         if(nums.size() == 0)return 0;
         if(nums.size() == 1) return 1;
 
-        set<int> s;
+        set<int> s(nums.begin(), nums.end());
 
-        for(int n : nums) {
-            s.insert(n);
-        }
+        // for(int n : nums) {
+        //     s.insert(n);
+        // }
 
         auto last = s.begin();
         int count = 1;
