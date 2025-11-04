@@ -12,17 +12,13 @@ public:
         }
 
         auto last = s.begin();
-        auto stop = s.begin();
-        int count = 0;
+        int count = 1;
         int res = 0;
 
         for(auto n = s.begin(); n != s.end(); n++){
             if(n == s.begin()){
-                count += 1;
                 continue;
             }
-
-            cout << *n << " " << *last << " " << count << " " << res << endl;
 
             if(*n-*last > 1) {
                 res = (res < count) ? count : res;
