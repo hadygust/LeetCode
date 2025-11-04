@@ -7,26 +7,17 @@ public:
 
         set<int> s(nums.begin(), nums.end());
 
-        // for(int n : nums) {
-        //     s.insert(n);
-        // }
-
         auto last = s.begin();
         int count = 1;
         int res = 0;
 
-        for(auto n = s.begin(); n != s.end(); n++){
-            if(n == s.begin()){
-                continue;
-            }
-
+        for(auto n = ++s.begin(); n != s.end(); n++){
             if(*n-*last > 1) {
                 res = (res < count) ? count : res;
                 count = 1;
             } else {
                 count += 1;
             }
-
             last = n;
         }
 
