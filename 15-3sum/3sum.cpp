@@ -4,21 +4,21 @@ public:
 
         sort(nums.begin(), nums.end());
 
-        // for(int n : nums){
-        //     cout << n << " ";
-        // }
-
-        set<vector<int>> sres;
+        vector<vector<int>> res;
 
         for (int i = 0; i < nums.size(); i++){
+
+            if (i > 0 && nums[i] == nums[i-1]) {
+                continue;
+            }
             
             int l = i+1, r = nums.size()-1;
 
             while(l < r){
                 if(nums[i] + nums[l] + nums[r] == 0){
-                    sres.insert({nums[i], nums[l], nums[r]});
-                    l++; r--;
-                    // break;
+                    res.push_back({nums[i], nums[l], nums[r]});
+                    l++;
+                    while(nums[l] == nums[l-1] && l<r) l++;
                 }
                 else if(nums[i] + nums[l] + nums[r] < 0){
                     l++;
@@ -26,11 +26,7 @@ public:
                     r--;
                 }
             }
-// -2 0 0 1 2
-// -1 -1 0 1 2 2 
         }
-        vector<vector<int>> res(sres.begin(), sres.end());
         return res;
-        
     }
 };
