@@ -2,7 +2,6 @@ class Solution {
 public:
     int search(vector<int>& nums, int target) {
         int l = 0, r = nums.size()-1, curr = (r-l)/2;
-        if(nums[0] == target) return 0;
         while(l <= r){
             cout << curr << endl;
             if(nums[curr] == target) return curr;
