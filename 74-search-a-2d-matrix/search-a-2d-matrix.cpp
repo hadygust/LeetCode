@@ -7,7 +7,7 @@ public:
         bool flag = false;
 
         while(up <= dw){
-            cout << curr << endl;
+            // cout << curr << endl;
             if(target >= matrix[curr][0] && target <= matrix[curr][r]){
                 // cout << matrix[curr][0] << endl;
                 flag = true;
