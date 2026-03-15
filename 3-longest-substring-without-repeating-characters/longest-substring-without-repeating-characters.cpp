@@ -21,7 +21,6 @@ public:
                 }
                 l++;
             } else {
-                cout << r << s[r] << endl;
                 count++;
                 m[s[r]]++;
                 r++;
