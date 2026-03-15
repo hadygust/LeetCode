@@ -8,7 +8,7 @@ public:
             if(n > r) r = n;
         }
 
-        cout << "r " << r << endl;
+        // cout << "r " << r << endl;
 
         int curr = ceil((double)(r-l)/2);
 
@@ -27,7 +27,7 @@ public:
             }
         }
 
-        cout << curr << endl;
+        // cout << curr << endl;
 
         while (curr > 1){
             curr--;
