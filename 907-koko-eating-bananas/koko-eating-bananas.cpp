@@ -11,13 +11,18 @@ public:
         // cout << "r " << r << endl;
 
         int curr = ceil((double)(r-l)/2);
+        int ans = r;
 
         while (l <= r){
             long long int time = 0;
             for(int n : piles){
                 time += ceil((double)n/curr);
             }
-            if(time == h) break;
+            if(time == h) {
+                ans = curr;
+                r = curr - 1;
+                curr = (r - l) / 2 + l;
+            }
             else if(time > h){
                 l = curr + 1;
                 curr = (r - l) / 2 + l;
@@ -29,17 +34,17 @@ public:
 
         // cout << curr << endl;
 
-        while (curr > 1){
-            curr--;
-            int time = 0;
-            for(int n : piles){
-                time += ceil((double)n/curr);
-            }
-            if(time != h || curr == 0){
-                curr++;
-                break;
-            } 
-        }
+        // while (curr > 1){
+        //     curr--;
+        //     int time = 0;
+        //     for(int n : piles){
+        //         time += ceil((double)n/curr);
+        //     }
+        //     if(time != h || curr == 0){
+        //         curr++;
+        //         break;
+        //     } 
+        // }
 
         return curr;
     }
