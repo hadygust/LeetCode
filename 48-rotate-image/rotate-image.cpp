@@ -6,9 +6,9 @@ public:
         4 5 6
         7 8 9
 
-        1
-         
-         
+        1 4 7
+        2 5 8
+        3 6 9
     */
 
     void transpose(vector<vector<int>>& m){
@@ -35,18 +35,8 @@ public:
         }
     }
 
-    void printMtx(vector<vector<int>>& m){
-        for (int i = 0; i < m.size(); i++){
-            for (int j = 0; j < m.size(); j++){
-                cout << m[i][j] << " ";
-            }
-            cout << endl;
-        }
-    }
-
     void rotate(vector<vector<int>>& matrix) {
         transpose(matrix);
-        // printMtx(matrix);
         rotateRow(matrix);
     }
 };
