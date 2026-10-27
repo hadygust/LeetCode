@@ -13,7 +13,7 @@ public:
                     start = l;
                     end = r;
                     res = r-l+1;
-                    cout << s[i] << " " << l << " " << r << " " << res << endl;
+                    // cout << s[i] << " " << l << " " << r << " " << res << endl;
                 }
                 l--; 
                 r++;
@@ -28,7 +28,7 @@ public:
                     start = l;
                     end = r;
                     res = r-l+1;
-                    cout << s[i] << " " << l << " " << r << " " <<  res << endl;
+                    // cout << s[i] << " " << l << " " << r << " " <<  res << endl;
                 }
                 l--; 
                 r++;
