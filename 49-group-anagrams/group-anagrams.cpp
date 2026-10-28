@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         map<multiset<char>, vector<string>> m;
         for (int i = 0; i < strs.size(); i++){
             multiset<char> temp;
