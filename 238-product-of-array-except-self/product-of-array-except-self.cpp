@@ -1,31 +1,23 @@
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
-        long long int n = 0;
-        int ocount = 0;
-        for(int x : nums){
-            if(x != 0) {
-                if(n == 0) n++;
-                n *= x;
-            }
+        int sum = 1;
+        int zero = 0;
+        for(auto x : nums){
+            if (x != 0) sum *= x;
+            else zero++;
+        }
+
+        for(int i = 0; i < nums.size(); i++){
+            if (zero == 0) nums[i] = sum/nums[i];
             else {
-                ocount++;
+                if (zero == 1){
+                    nums[i] = (nums[i] == 0) ? sum : 0;
+                } else {
+                    nums[i] = 0;
+                }
             }
         }
-
-        vector<int> res;
-
-        for(int x : nums){
-            if(ocount > 1){
-                res.push_back(0);
-            } else if(x != 0){
-                if(ocount > 0) res.push_back(0);
-                else res.push_back(n/x);
-            } else {
-                res.push_back(n);
-            }
-        }
-
-        return res;
+        return nums;
     }
 };
