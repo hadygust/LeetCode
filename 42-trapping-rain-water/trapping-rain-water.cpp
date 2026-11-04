@@ -1,37 +1,32 @@
 class Solution {
 public:
-    int trap(vector<int>& height) {
-
-        int max = 0, maxIdx = 0;
-
-        for (int i = 0; i < height.size(); i++){
-            if(height[i] > max){
-                max = height[i];
-                maxIdx = i;
-            }
-        }
-
+    int trap(vector<int>& h) {
         int res = 0;
-        int lastHigh = 0;
 
-        for(int i = 0 ; i <= maxIdx; i++) {
-            if(height[i] > lastHigh) {
-                lastHigh = height[i];
-                continue;
-            }
-            res += lastHigh-height[i];
-        }
+        int lmax = h[0];
+        int rmax = h[h.size()-1];
 
-        lastHigh = 0;
-        for(int i = height.size()-1; i >= maxIdx; i--) {
-            if(height[i] > lastHigh) {
-                lastHigh = height[i];
-                continue;
+        int l = 1, r = h.size()-2;
+
+        while (l <= r){
+            // cout << lmax << " " << h[l] << " " << h[r] << " " << rmax << "  " << res << endl;
+            if(lmax < rmax){
+                if(lmax <= h[l]){
+                    lmax = h[l];
+                } else {
+                    res += lmax - h[l];
+                }
+                l++;
+            } else {
+                if(rmax <= h[r]){
+                    rmax = h[r];
+                } else {
+                    res += rmax - h[r];
+                }
+                r--;
             }
-            res += lastHigh-height[i];
         }
 
         return res;
-        
     }
 };
