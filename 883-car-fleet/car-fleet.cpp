@@ -1,32 +1,29 @@
 class Solution {
 public:
 
-    struct Car{
-        int pos;
-        int speed;
-        double time;
-    };
+    int carFleet(int target, vector<int>& pos, vector<int>& sp) {
+        if(pos.size() == 0) return 0;
+        if(pos.size() == 1) return 1;
 
-    int carFleet(int target, vector<int>& position, vector<int>& speed) {
-        vector<Car> cars;
-        for(int i = 0; i < position.size(); i++){
-            cars.push_back({position[i], speed[i], ((double)(target-position[i])/speed[i])});
+        set<pair<int, int>> cars;
+
+        for(int i = 0; i < pos.size(); i++){
+            cars.insert({pos[i], sp[i]});
         }
 
-        sort(cars.begin(), cars.end(), [](Car a, Car b){
-            return a.pos > b.pos;
-        });
+        stack<double> st;
 
-        int res = 0; double curr = 0;
-        for(auto car: cars){
-            // cout << car.pos << " " << car.speed << endl;
-                // cout << car.time << endl;
-            if(car.time > curr) {
-                curr = car.time;
-                res++;
+        for(auto i : cars){
+            double ttf = (static_cast<double>(target - i.first)/i.second);
+
+            while (!st.empty() && st.top() <= ttf){
+                st.pop();
             }
+
+            st.push(ttf);
+            // cout << i.first << " " << i.second << " " << ttf << endl;
         }
 
-        return res;
+        return st.size();
     }
 };
