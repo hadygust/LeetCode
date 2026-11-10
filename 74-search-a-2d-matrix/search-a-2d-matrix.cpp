@@ -1,45 +1,29 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int x;
 
-        int up = 0, dw = matrix.size()-1, curr = (dw-up)/2, y;
-        int l = 0, r = matrix[0].size()-1;
-        bool flag = false;
+        int t = 0, b = matrix.size()-1;
 
-        while(up <= dw){
-            // cout << curr << endl;
-            if(target >= matrix[curr][0] && target <= matrix[curr][r]){
-                // cout << matrix[curr][0] << endl;
-                flag = true;
-                y = curr;
+        while (true){
+            int mid = (t+b)/2;
+            if(target >= matrix[mid][0] && (mid == b || target < matrix[mid+1][0])){
+                x = mid;
                 break;
-            } else if (target < matrix[curr][0]){
-                dw = curr-1;
-                curr = (dw-up)/2+up;
-            } else if (target > matrix[curr][r]){
-                up = curr+1;
-                curr = (dw-up)/2+up;
-            }
-        }
-
-        if(!flag) return flag;
-        
-        curr = (r-l)/2;
-
-        while (l <= r){
-            // cout << l << " " << r << " " << curr << " " << matrix[y][curr] << endl;
-            if(target == matrix[y][curr]) return flag = true;
-            else if (target < matrix[y][curr]){
-                // cout << "inhere" << endl;
-                r = curr-1;
-                curr = (r-l)/2+l;
+            } else if (target < matrix[mid][0]){
+                if(b == mid) return 0;
+                b = mid;
             } else {
-                l = curr+1;
-                curr = (r-l)/2+l;
+                if(t == mid && t == b){
+                    return 0;
+                } else if (t == mid){
+                    t = b;
+                } else {
+                    t = mid;
+                }
             }
         }
 
-
-        return false;
+        return binary_search(matrix[x].begin(), matrix[x].end(), target);
     }
 };
